@@ -17,7 +17,7 @@ public class Categories {
         String sql="select idcategories,nomcategorie from categories";
         Vector<Object>[]responce= FonctionBase.select(sql);
         for (int i = 0; i <responce[0].size() ; i++) {
-            Categories categories=new Categories((int)responce[0].elementAt(i),(String) responce[0].elementAt(i));
+            Categories categories=new Categories((int)responce[0].elementAt(i),(String) responce[1].elementAt(i));
             valiny.add(categories);
         }
         return valiny;

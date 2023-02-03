@@ -41,6 +41,12 @@ public class URL_Encher {
   public List<Encher> my_propre_encher(@PathVariable String id)throws Exception{
       return Encher.my_propre_encher(id);
   }
+    ////GET MY PROPRE ENCHER Done
+    @PostMapping("/my_propre_encher")
+    public List<Encher> my_propre_encher(@Validated @RequestBody Client p)throws Exception{
+        return Encher.my_propre_encher(p.getId_client());
+    }
+
 
     ////insert Encher Done
     @PostMapping("/insert_encher")
