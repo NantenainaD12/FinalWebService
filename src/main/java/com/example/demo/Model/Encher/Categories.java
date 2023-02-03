@@ -7,10 +7,6 @@ import java.util.Vector;
 public class Categories {
     int idcategories;
     String nomcategorie;
-    
-    public Categories() {
-        
-    }
 
     public Categories(int idcategories, String nomcategorie) {
         this.idcategories = idcategories;
