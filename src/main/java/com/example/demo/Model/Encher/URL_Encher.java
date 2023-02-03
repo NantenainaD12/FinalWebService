@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 @RestController
 @RequestMapping("/encher")
@@ -35,11 +36,11 @@ public class URL_Encher {
     public List<Encher> recherche(@Validated @RequestBody String id) {
         System.out.println("recherche");return Encher.recherche(id);
     }
-    ////GET MY PROPRE ENCHER Done
-    @PostMapping("/my_propre_encher")
-    public List<Encher> my_propre_encher(@Validated @RequestBody Client p)throws Exception{
-        return Encher.my_propre_encher(p.getId_client());
-    }
+  ////GET MY PROPRE ENCHER Done
+  @PostMapping("/my_propre_encher/{id}")
+  public List<Encher> my_propre_encher(@PathVariable String id)throws Exception{
+      return Encher.my_propre_encher(id);
+  }
 
     ////insert Encher Done
     @PostMapping("/insert_encher")
@@ -64,6 +65,16 @@ public class URL_Encher {
     @PostMapping("/login")
     public Client login(@Validated @RequestBody Client p){
         return Client.login(p.getLogin(),p.getMdp());
+    }
+
+    @GetMapping("/listes/{id}")
+    public Vector<RechargementList> getAllUser(@PathVariable int id) throws Exception {
+        return RechargementList.getAll(id);
+    }
+
+    @GetMapping("/categories")
+    public Vector<Categories>getAll() throws Exception {
+        return Categories.listAll();
     }
 
 }

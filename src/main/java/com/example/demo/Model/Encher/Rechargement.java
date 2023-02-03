@@ -20,10 +20,10 @@ public class Rechargement {
         try {
             c=new Conn_Encher();
 
-            String sql="INSERT INTO rechargement  (id_client, montant,dateRechargement,etat)  VALUES ('"+this.id_client+"','"+this.montant+"','"+this.date+"','"+this.etat+"')";
-            System.out.println(sql);
+            String sql="INSERT INTO rechargement  (idutilisateur, montant,dateRechargement,etat)  VALUES ('"+this.id_client+"','"+this.montant+"','now()','"+1+"')";
             st=c.get_espace();
             st.execute(sql);
+            System.out.println(sql);
             return true;
         }
         catch (Exception e){

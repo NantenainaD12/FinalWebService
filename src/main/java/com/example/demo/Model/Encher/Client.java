@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class Client {
     String id_client,nom,prenom,login,mdp;
-    double argent;
+    double argent=0;
 
 
     public double getArgent() {
@@ -51,6 +51,7 @@ public class Client {
         Statement st=null;
         Client valiny=null;
         try {
+            valiny=new Client( "-100", "", "", "", "", 0);
             c=new Conn_Encher();
             String sql="select * from utilisateur where login= '"+login+"' and mdp='"+mdp+"'";
             System.out.println(sql);
